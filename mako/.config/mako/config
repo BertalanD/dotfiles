@@ -1,0 +1,14 @@
+font='Fira Code' 12
+# 90% opacity base03
+background-color=#002b36E6
+# base1
+text-color=#93a1a1
+border-size=3
+# blue
+border-color=#268bd2ff
+# 90% opacity cyan
+progress-color=source #2aa198e6
+icons=1
+markup=1
+actions=1
+default-timeout=0

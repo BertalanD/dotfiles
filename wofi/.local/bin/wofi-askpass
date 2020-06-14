@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Present a graphical password prompt using wofi
+wofi --show dmenu --cache-file /dev/null --prompt 'password' --password

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+case "$1" in
+    "focused-output" | "fo")
+        grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')" -t png
+        ;;
+    "focused-output-clipboard" | "foc")
+        grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')" -t png - -t image/png >wl-copy
+        ;;
+    "active-window" | "aw")
+        grim -g "$(swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.focused) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" -t png
+        ;;
+    "active-window-clipboard" | "awc")
+        grim -g "$(swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.focused) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"')" -t png - -t image/png >wl-copy
+        ;;
+    "region" | "r")
+        grim -g "$(slurp)" -t png
+        ;;
+    "region-clipboard" | "rc")
+        grim -g "$(slurp)" -t png - | wl-copy -t image/png
+        ;;
+    *)
+        echo "Unknown mode \'$1\'" >&2
+        exit 1
+        ;;
+esac
+
+if command -v notify-send 2>/dev/null; then
+    grep -q clipboard && notify-send "Saved screen capture to clipboard" || notify-send "Saved screen capture to ~/Pictures/screenshots"
+fi

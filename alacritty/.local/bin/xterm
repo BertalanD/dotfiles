@@ -1,0 +1,6 @@
+#!/bin/sh
+
+PARENT_COMMAND="$(ps -o comm= $PPID)"
+notify-send 'Misbehaving program' "$PARENT_COMMAND tried to run a hardcoded xterm."
+
+"$TERMINAL" "$@"

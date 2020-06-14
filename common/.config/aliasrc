@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Verbose and interactive mode
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -vI" \
+    mkd="mkdir -pv"
+
+# Colorize always
+alias \
+    ls="ls --color=auto --group-directories-first -N" \
+    grep="grep --color=auto" \
+    egrep="egrep --color=auto" \
+    fgrep="fgrep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi"
+
+# Variations on a theme
+alias \
+    ll="ls -AlhF" \
+    l="ls -CF"
+
+# Substitute neovim for vim
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" rvim="nvim -Z" view="nvim -R" rview="nvim -RZ"
+
+# Fix ssh in Alacritty when remote machine does not have termcap for it
+_ssh() {
+    [ "$TERM" = "alacritty" ] && TERM="xterm-256color"
+    TERM="$TERM" ssh "$@"
+}
+alias ssh="_ssh"

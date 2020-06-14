@@ -1,0 +1,320 @@
+# vim: set filetype=i3 ts=4 sw=4 et:
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Gaps
+# Use the terminal emulator set in ~/.profile
+set $term $TERMINAL
+# Wayland replacement for rofi/dmenu
+# TODO: properly do run mode
+# The variables below are declared here because they are used in multiple bindings
+set $menu wofi --show=drun,run --term=$TERMINAL
+# Audio commands. Change here if using ALSA
+set $toggle_mute pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $toggle_mic_mute pactl set-source-mute @DEFAULT_SOURCE@ toggle
+set $increase_volume pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $decrease_volume pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $interactive_mixer float-run $term -e pulsemixer
+# Power commands. Change here if not using systemd
+set $shutdown systemctl poweroff
+set $reboot systemctl reboot
+set $hibernate systemctl hibernate
+# Backlight commands
+set $increase_backlight light -A 5%
+set $decrease_backlight light -U 5%
+# screenshot commands are defined by script ~/.local./bin/screenshot
+set $file_manager $term -e lf
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#
+    output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+    # Reset all of the pretty stuff
+    bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0; exec redshift -x
+
+### Idle configuration
+#
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Start a terminal in the focused window's pwd
+    bindsym $mod+Shift+Return exec wl-samedir
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+Escape exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Shift+Backspace exec swaynag -t warning -m 'Reboot computer?' -b 'Yes, reboot' "$reboot"
+
+    bindsym $mod+Shift+x exec swaynag -t warning -m 'Shutdown computer?' -b 'Yes, shutdown' "$shutdown"
+    bindsym XF86PowerOff exec swaynag -t warning -m 'Shutdown computer?' -b 'Yes, shutdown' "$shutdown"
+
+    bindsym $mod+F4 exec swaynag -t warning -m 'Hibernate computer?' -b 'Yes, hibernate' "$hibernate"
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+    # Move workspace around outputs
+    bindsym $mod+Ctrl+$left move workspace to output left
+    bindsym $mod+Ctrl+$down move workspace to output down
+    bindsym $mod+Ctrl+$up move workspace to output up
+    bindsym $mod+Ctrl+$right move workspace to output right
+    # Arrows if you don't like vim
+    bindsym $mod+Ctrl+Left move workspace to output left
+    bindsym $mod+Ctrl+Down move workspace to output down
+    bindsym $mod+Ctrl+Up move workspace to output up
+    bindsym $mod+Ctrl+Right move workspace to output down
+
+#
+# Workspaces:
+#
+    # You can set friendly names here
+    set $ws1 "1"
+    set $ws2 "2"
+    set $ws3 "3"
+    set $ws4 "4"
+    set $ws5 "5"
+    set $ws6 "6"
+    set $ws7 "7"
+    set $ws8 "8"
+    set $ws9 "9"
+    set $ws10 "10"
+
+    # Switch to workspace
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+Home workspace $ws1
+
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+
+    bindsym $mod+0 workspace $ws10
+    bindsym $mod+End workspace $ws10
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+Home move container to workspace $ws1
+
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+
+    bindsym $mod+Shift+0 move container to workspace $ws10
+    bindsym $mod+Shift+End move container to workspace $ws10
+
+    bindsym $mod+Next workspace next
+    bindsym $mod+Prior workspace prev
+
+    bindsym $mod+Shift+Next move container to workspace next
+    bindsym $mod+Shift+Prior move container to workspace prev
+
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen toggle
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Audio
+#
+    bindsym $mod+Shift+a exec $interactive_mixer
+    
+    bindsym $mod+Shift+m exec $toggle_mute
+    bindsym XF86AudioMute exec $toggle_mute
+   
+    bindsym $mod+KP_Add exec $increase_volume
+    bindsym XF86AudioRaiseVolume exec $increase_volume
+    
+    bindsym $mod+KP_Subtract exec $decrease_volume
+    bindsym XF86AudioLowerVolume exec $decrease_volume
+
+    bindsym XF86AudioMicMute exec $toggle_mic_mute
+
+#
+# Screenshots
+#
+# These use the grimshot script supplied by sway
+#
+    # Save screenshot of focused screen to file
+    bindsym Print exec grimshot save screen
+
+    # Save screenshot of focused screen to clipboard
+    bindsym Ctrl+Print exec grimshot copy screen
+
+    # Save screenshot of active window to file
+    bindsym Alt+Print exec grimshot save win
+    
+    # Save screenshot of active window to clipboard
+    bindsym Ctrl+Alt+Print exec grimshot copy win
+
+    # Save screenshot of region to file
+    bindsym Shift+Print exec grimshot save area
+
+    # Save screenshot of region to clipboard
+    bindsym Ctrl+Shift+Print exec grimshot copy area
+
+#
+# Backlight
+#
+    bindsym XF86MonBrightnessDown exec $decrease_backlight
+    bindsym XF86MonBrightnessUp exec $increase_backlight
+
+#
+# Other XF86 keys
+#
+    # Uses my own ~/.local/bin/rfkill-toggle script
+    bindsym XF86WLAN exec rfkill-toggle wlan
+    bindsym XF86Bluetooth exec rfkill-toggle bluetooth
+
+    # Uses the nicked ~/.local/bin/kbdbacklight
+    bindsym XF86KbdBrightnessUp exec kbdbacklight up
+    bindsym XF86KbdBrightnessDown exec kbdbacklight down
+
+    bindsym XF86TouchpadToggle input type:touchpad events toggle enabled disabled
+    bindsym XF86TouchpadOn input type:touchpad events enabled
+    bindsym XF86TouchpadOff input type:touchpad events disabled
+
+    bindsym XF86Explorer exec $file_explorer
+    bindsym XF86MyComputer exec $file_explorer
+    bindsym XF86Documents exec $file_explorer ~/Documents
+    
+    bindsym XF86WWW exec $BROWSER
+    bindsym XF86Search exec $BROWSER https://duckduckgo.com
+
+#
+# Status Bar:
+#
+bar swaybar_command waybar
+
+#
+# Application Hacks:
+#
+    # hacky and not even sure that it works
+    for_window [class="^.*"] inhibit_idle fullscreen #X11
+    for_window [app_id="^.*"] inhibit_idle fullscreen #Wayland
+
+    for_window [window_role="pop-up"] floating enable
+    for_window [class="float"] floating enable
+    for_window [class="^(F|f)irefox" title="^Page Info"] floating enable
+    for_window [app_id="^(F|f)irefox" title="^Page Info"] floating enable
+    for_window [title="^About Firefox"] floating enable
+
+
+include /etc/sway/config.d/*
+include config.d/*

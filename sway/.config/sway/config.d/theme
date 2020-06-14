@@ -1,0 +1,41 @@
+# vim: set filetype=i3 ts=4 sw=4 et:
+
+## Theming according to my own preferences. Can be deleted without changing functionality.
+
+# Title bars are unnecessary
+for_window [class="^.*"] border pixel 2
+for_window [app_id="^.*"] border pixel 2
+
+gaps inner 10
+gaps outer 10
+
+smart_borders on
+smart_borders no_gaps
+
+set $base03    '#002b36'
+set $base02    '#073642'
+set $base01    '#586e75'
+set $base00    '#657b83'
+set $base0     '#839496'
+set $base1     '#93a1a1'
+set $base2     '#eee8d5'
+set $base3     '#fdf6e3'
+set $yellow    '#b58900'
+set $orange    '#cb4b16'
+set $red       '#dc322f'
+set $magenta   '#d33682'
+set $violet    '#6c71c4'
+set $blue      '#268bd2'
+set $cyan      '#2aa198'
+set $green     '#859900'
+
+# Start generating new wallpaper from the graph of packages
+exec pacwall
+# Meanwhile, set the previously generated or fall back to solid color
+output * bg ~/.local/share/wallpapers/pacwall/pacwall*.png center $base02
+
+# 			            border	background	text	indicator	child_border
+client.focused          $blue   $blue  	    $base3  $blue       $blue
+client.focused_inactive $base03 $base03		$base00 $base03     $base03
+client.unfocused        $base03 $base03		$base00 $base03     $base03
+client.urgent           $red    $red        $base3  $red        $red

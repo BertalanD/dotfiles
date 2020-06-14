@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Open a terminal window in the same directory as the current active windows
+# A reimplementation of LukeSmithxyz's 'samedir'
+
+# Get PID of process displaying the active window
+WINDOW_PID="$(swaymsg -t get_tree | jq '.. | (.nodes? //empty)[] | select(.focused==true) | .pid')"
+# Get PID of newest child of window. In case of terminals, it should be the process it's running.
+PID="$(pgrep --newest --parent "$WINDOW_PID")"
+DIR="$(readlink "/proc/${PID:-$WINDOW_PID}/cwd")" || return 1
+
+case "$TERMINAL" in
+    *alacritty*) "$TERMINAL" --working-directory "$DIR" ;;
+    *)
+        cd "${DIR:-$HOME}"
+        "$TERMINAL"
+        ;;
+esac

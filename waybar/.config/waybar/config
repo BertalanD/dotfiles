@@ -1,0 +1,71 @@
+{
+	"layer": "top",
+	"position": "top",
+	"gtk-layer-shell": true,
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["sway/window"],
+	"modules-right": [
+		"tray",
+		"pulseaudio",
+		"network",
+		"custom/kbdlayout",
+		"battery",
+		"clock"
+	],
+	"pulseaudio": {
+		"format": "{icon} {volume}% {format_source}",
+        	"format-bluetooth": "{icon} {volume}%  {format_source}",
+        	"format-bluetooth-muted": "{icon}   {format_source}",
+        	"format-muted": " {format_source}",
+        	"format-source": " {volume}%",
+        	"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+	    		"portable": "",
+			"car": "",
+			"hdmi": "",
+	    		"default": ["", "", ""]
+        	},
+		"on-click": "float-run $TERMINAL -e pulsemixer"		
+	},
+	"network": {
+		"interval": 1,
+		"format-ethernet": " {ifname}",
+		"tooltip-format-ethernet": "IP:\t\t{ipaddr}\\{cidr}\nUp:\t\t{bandwidthUpBits}\nDown:\t{bandwidthDownBits}",
+		"format-wifi": " {essid}",
+		"tooltip-format-wifi": "IP:\t\t{ipaddr}\\{cidr}\nSignal:\t{signaldBm} ({signalStrength}%)\nFreq:\t{frequency}\nUp:\t\t{bandwidthUpBits}\nDown:\t{bandwidthDownBits}",
+		"format-linked": " {ifname} (no IP)",
+		"format-disconnected": "DISCONNECTED",
+		"on-click": "float-run $TERMINAL -e nmtui"
+	},
+	"custom/kbdlayout": {
+		"exec": "kbdlayout -wj",
+		"return-type": "json",
+		"format": " {}",
+		"restart-interval": 1
+	},
+	"battery": {
+		"bat": "BAT0",
+		"adapter": "AC",
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity:2}%",
+		"format-alt": "{icon} {time}",
+		"format-charging": " {capacity:2}%",
+		"format-plugged": " {capacity:2}%",
+		"format-icons": ["", "", "", "", ""],
+		"format-time": "{H} h {M} min"
+	},
+	"clock": {
+		"interval": 1,
+		"format": " {:%H:%M:%S}",
+		"format-alt": " {:%D}",
+		"tooltip-format": "<big> {:%B %Y}</big>\n<tt>{calendar}</tt>",
+		"on-click-right": "float-run $TERMINAL -e calcurse"
+	}
+}

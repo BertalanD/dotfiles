@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Configuration common to all interactive shells
+
+# Turn off ctrl+s freezing terminal
+[ -n "$ZSH_VERSION" ] && stty -ixon
+
+# Load other stuff
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/aliasrc"
+
+updategpgtty() {
+    # Required by GPG SSH agent
+    export GPG_TTY="$(tty)"
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    gpg-connect-agent updatestartuptty /bye >/dev/null
+}
+
+updategpgtty

@@ -1,0 +1,35 @@
+#window {
+	border: 3px solid #268bd2; /*blue*/
+	background-color: rgba(7,54,66, 0.9); /*base01*/
+	color: #839496; /*base0*/
+	font-size: 20px;
+}
+
+#outer-box {
+	margin: 15px;
+}
+
+#input {
+	background: none;
+	box-shadow: none;
+	border: none;
+	border-radius: 0px;
+	border-bottom: 3px solid #268bd2; /*blue*/
+}
+	
+#input:focus {
+	outline: none;
+	color: #93a1a1; /*base1*/
+        font-weight: bold;
+}
+
+#entry {
+	background: none;
+}
+
+#entry:selected #text {
+	color: #93a1a1; /*base1*/
+	font-weight: bold;
+	border: none;
+	background: none;
+}
