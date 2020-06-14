@@ -30,7 +30,7 @@ set $cyan      '#2aa198'
 set $green     '#859900'
 
 # Start generating new wallpaper from the graph of packages
-exec pacwall
+exec pacwall -D
 # Meanwhile, set the previously generated or fall back to solid color
 output * bg ~/.local/share/wallpapers/pacwall/pacwall*.png center $base02
 

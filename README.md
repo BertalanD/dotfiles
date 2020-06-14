@@ -62,7 +62,7 @@ Zsh is a feature-rich and more user-friendly shell for interactive use and has m
 A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wallpaper is generated with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. 
 
 #### Dependencies
-    # pacman -S sway wofi pulseaudio pulsemixer grim slurp wl-copy jq util-linux light dbus
+    # pacman -S sway wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code
 
 ### Waybar
 
