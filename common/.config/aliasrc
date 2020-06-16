@@ -15,14 +15,23 @@ alias \
     egrep="egrep --color=auto" \
     fgrep="fgrep --color=auto" \
     diff="diff --color=auto" \
-    ccat="highlight --out-format=ansi"
+    ccat="highlight --out-format=ansi" \
+    ip="ip -color=auto"
 
 # Variations on a theme
-alias \
-    ll="ls -lAhF" \
-    ldot="ls -ldF .*" \
-    l.="ls -dF .*" \
-    l="ls -CF"
+# sources:
+#   - https://gist.github.com/anonymous/a9055e30f97bd19645c2
+#   - https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
+alias lr="ls -R"         # recursive
+alias ll="ls -lAhF"      # long format, human-readable sizes, list dotfiles, show types
+alias ldot="ls -ldF .*"  # list dotfies in long format
+alias l.="ls -dF .*"     # list dotfiles in short format
+alias l="ls -CF"         # list files, show types
+alias lx="ll -BX"        # sort by extension
+alias lsz="ll -rS"       # sort by size
+alias lt='ll -rt'        # sort by date
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
 
 # Other useful shorthands
 alias dud="du -d 1 -h" \           # display the size of files at depth 1
@@ -45,3 +54,20 @@ alias ssh="_ssh"
 
 # Create directory and cd into it
 mkcd() { mkdir -p "$1" && cd "$1"; } 
+
+# Colorize man pages
+man() {
+	env \
+        	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        	LESS_TERMCAP_me=$(printf "\e[0m") \
+        	LESS_TERMCAP_se=$(printf "\e[0m") \
+        	LESS_TERMCAP_so=$(printf "\e[0;37;102m") \
+     		LESS_TERMCAP_ue=$(printf "\e[0m") \
+        	LESS_TERMCAP_us=$(printf "\e[4;32m") \
+		PAGER="${PAGER:-less}" \
+		_NROFF_U=1 \
+        	GROFF_NO_SGR=1 \
+	man "$@"
+
+}
