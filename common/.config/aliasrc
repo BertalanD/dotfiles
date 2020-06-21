@@ -29,15 +29,15 @@ alias l.="ls -dF .*"     # list dotfiles in short format
 alias l="ls -CF"         # list files, show types
 alias lx="ll -BX"        # sort by extension
 alias lsz="ll -rS"       # sort by size
-alias lt='ll -rt'        # sort by date
-alias lart='ls -1Fcart'
-alias lrt='ls -1Fcrt'
+alias lt="ll -rt"        # sort by date
+alias lart="ls -1Fcart"
+alias lrt="ls -1Fcrt"
 
 # Other useful shorthands
-alias dud="du -d 1 -h" \           # display the size of files at depth 1
-alias duf="du -sh" \               # display the size of files in the current dir
-alias fd="find . -type d -name" \  # find directory with name
-alias ff="find . -type f -name" \  # find file with name
+alias dud="du -d 1 -h"             # display the size of files at depth 1
+alias duf="du -sh"                 # display the size of files in the current dir
+alias fd="find . -type d -name"    # find directory with name
+alias ff="find . -type f -name"    # find file with name
 alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}"  # ripgrep is better for this
 
 alias cg='cd "$(git rev-parse --show-toplevel)"'  # cd to the top level of git repository
