@@ -58,11 +58,12 @@ Zsh is a feature-rich and more user-friendly shell for interactive use and has m
 - toggling keyboard backlight (using the custom `.local/bin/kbdbacklight`)
 - keybindings for shutdown, reboot and hibernate (using `systemd`)
 - a script for querying/monitoring keyboard layout changes (`.local/bin/kbdlayout`), used by waybar
+- polkit authentication agent
 
 A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wallpaper is generated with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. 
 
 #### Dependencies
-    # pacman -S sway wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code
+    # pacman -S sway wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code polkit-gnome
 
 ### Waybar
 
@@ -88,11 +89,15 @@ A GPU-accelerated cross-platform terminal emulator. Aside from my preferred font
 
 ### redshift
 
-Control the display's color temperature. Automatically sets a warmer temperature at night, reducing eye strain. Requires a version patched with Wayland support. Set to be run on login by sway.
+Control the display's color temperature. Automatically sets a warmer temperature at night, reducing eye strain. Requires a version patched with Wayland support (i.e. `redshift-wayland-git` from AUR). Set to be run on login by sway.
 
 ### mako
 
 Display desktop notifications. It is automatically added to be launched by sway on startup. Custom theming is added.
+
+#### Dependencies
+
+    # pacman -S mako libnotify
 
 ### gpg
 

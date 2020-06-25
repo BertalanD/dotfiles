@@ -1,28 +1,33 @@
 #!/bin/sh
 
-FORMAT="friendly"
-
 help() {
-    echo "$0 - display the currently active keyboard layout"
-    echo "$0 [-w] [-j|-b] [device]"
+    me="$(basename ${0:-$BASH_SOURCE})"
+    echo "$me - display the currently active keyboard layout"
+    echo "$me [-w] [-j|-b] [device]"
     echo
     echo "Options:"
     echo "  -w  watch: run continuously and print new layout when it changes"
     echo "  -j  json:  output JSON compatible with waybar"
     echo "  -b  i3blocks: output i3blocks-compatible data"
     echo
-    echo "  device: identifier of keyboard"
+    echo "  device: identifier of keyboard (regex)"
 }
 
 format() {
     # $1: layout name
-    [ "$FORMAT" = "friendly" ] && echo "Layout is $1"
-    [ "$FORMAT" = "json" ] && echo "{ \"text\": \"$1\", \"tooltip\": \"Keyboard layout: $1\", \"class\": \"\" }"
-    if [ "$FORMAT" = i3blocks ]; then
-        echo "$1"
-        echo "Keyboard layout: $1"
-        echo
-    fi
+    case ${FORMAT:-friendly} in
+        friendly) echo "Keyboard layout: $1" ;;
+        json) echo "{ \"text\": \"$1\", \"tooltip\": \"Keyboard layout: $1\", \"class\": \"\" }" ;;
+        i3blocks)
+            echo "$1"
+            echo "Keyboard layout: $1"
+            echo
+            ;;
+        *)
+            echo "Invalid output format" >&2
+            exit 1
+            ;;
+    esac
 }
 
 one_time() {
@@ -34,21 +39,18 @@ watch() {
     swaymsg -m -t subscribe "[\"input\"]" | jq --unbuffered -r "select(.change==\"xkb_layout\") | .input | select(.identifier|test(\"$DEVICE\")) | .xkb_active_layout_name //empty" | while read -r layout; do
         format "$layout"
     done
-
-    watch_pid=$!
-
-    trap 'kill $watch_pid' 0
 }
 
-while getopts wjb opt; do
+while getopts wjbh opt; do
     case $opt in
         w) WATCH=1 ;;
         j) FORMAT="json" ;;
         b) FORMAT="i3blocks" ;;
-        *)
+        h)
             help
-            exit 1
+            exit 0
             ;;
+        *) exit 1 ;;
     esac
 done
 shift $((OPTIND - 1))

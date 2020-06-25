@@ -315,6 +315,7 @@ bar swaybar_command waybar
     for_window [app_id="^(F|f)irefox" title="^Page Info"] floating enable
     for_window [title="^About Firefox"] floating enable
 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 
 include /etc/sway/config.d/*
 include config.d/*
