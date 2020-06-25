@@ -11,4 +11,9 @@ progress-color=source #2aa198e6
 icons=1
 markup=1
 actions=1
-default-timeout=0
+default-timeout=5
+
+[urgency=high]
+# red
+border-color=#dc322fff
+default_timeout=0

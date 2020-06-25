@@ -2,6 +2,6 @@ width=640
 normal_window=false
 allow_images=true
 hide_scroll=true
-matching=fuzzy
+#matching=fuzzy
 insensitive=true
 key_expand=Right
