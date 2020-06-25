@@ -65,6 +65,18 @@ A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wa
 #### Dependencies
     # pacman -S sway wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code polkit-gnome
 
+### Neovim
+
+An extensive and very powerful text editor. Currently, most settings are kept unchanged, but a larg number of useful plugins are included.
+
+#### Dependencies
+
+    # pacman -S neovim vim-airline vim-airline-themes vim-surround vim-nerdtree vim-editorconfig
+
+From the AUR, get:
+- vim-colors-solarized-git
+- vim-rainbow-parentheses-git
+
 ### Waybar
 
 A graphical statusbar natively compatible with Wayland. Right-to-left, it displays:
@@ -107,6 +119,6 @@ A hardened configuration for the GPG encryption/signing tool. `gpg-agent` is con
 
 These configs are specific to **my** laptop. Settings are:
 - `us`/`us-intl`/`hu` keyboard layout
-- Switch layouts with `Ctrl`+`Shift`
+- Switch layouts with `Alt`+`Shift`
 - Swap `CapsLock` and `Esc` keys
 - Enable tap to click, disable touchpad while typing
