@@ -58,12 +58,13 @@ Zsh is a feature-rich and more user-friendly shell for interactive use and has m
 - toggling keyboard backlight (using the custom `.local/bin/kbdbacklight`)
 - keybindings for shutdown, reboot and hibernate (using `systemd`)
 - a script for querying/monitoring keyboard layout changes (`.local/bin/kbdlayout`), used by waybar
+- automatic screen locking and lockscreen
 - polkit authentication agent
 
 A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wallpaper is generated with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. 
 
 #### Dependencies
-    # pacman -S sway wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code polkit-gnome
+    # pacman -S sway swaybg swayidle swaylock wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code polkit-gnome
 
 ### Neovim
 

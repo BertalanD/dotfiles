@@ -1,0 +1,17 @@
+show-keyboard-layout
+color=07364280
+bs-hl-color=cb4b16
+caps-lock-bs-hl-color=c322f
+caps-lock-key-hl-color=2aa198
+inside-color=073642
+inside-clear-color=b58900
+inside-caps-lock-color=cb4b16
+inside-wrong-color=dc322f
+key-hl-color=268bd2
+layout-text-color=586e75
+line-uses-ring
+text-color=586e75
+text-clear-color=586e75
+text-caps-lockk-color=586e75
+text-ver-color=586e75
+text-wrong-color=586e75
