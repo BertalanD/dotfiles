@@ -16,24 +16,13 @@ if ! filereadable(system('echo -n "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/sit
     autocmd VimEnter * PlugInstall
 endif
 
-" Do not force using a plugin manager if plugin is installed via distro tools
-" TODO: clean up with metaprogramming/macro stuff
-call plug#begin(stdpath('data') . '/plugged')
-if ! &runtimepath =~ 'vim-airline'
+call plug#begin(stdpath('data').'/plugged')
     Plug 'vim-airline/vim-airline'
-endif
-if ! &runtimepath =~ 'vim-airline-themes'
     Plug 'vim-airline/vim-airline-themes'
-endif
-if ! &runtimepath =~ 'vim-surround'
+    Plug 'altercation/vim-colors-solarized'
     Plug 'tpope/vim-surround'
-endif
-if ! &runtimepath =~ 'nerdtree'
     Plug 'preservim/nerdtree'
-endif
-if ! &runtimepath =~ 'editorconfig-vim'
     Plug 'editorconfig/editorconfig-vim'
-endif
 call plug#end()
 
 set nocompatible                            " do not limit features to be vi-compatible
