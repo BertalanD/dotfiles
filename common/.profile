@@ -17,9 +17,12 @@ export LESSHISTFILE="-"                                # do not store history
 # use Wayland for everything
 if command -v sway >/dev/null; then
     export MOZ_ENABLE_WAYLAND=1
-    export QT_QPA_PLATFORM=wayland
+    export QT_QPA_PLATFORM=wayland-egl
     export CLUTTER_BACKEND=wayland
+    export QT_WAYLAND_FORCE_DPI=physical
     export SDL_VIDEODRIVER=wayland
+    export ECORE_EVAS_ENGINE=wayland_egl
+    export ELM_ENGINE=wayland_egl
 fi
 
 # Program settings
@@ -46,4 +49,7 @@ command -v brave >/dev/null && export BROWSER="brave"
 command -v zathura >/dev/null && export READER="zathura"
 
 # Automatically start sway on TTY1
-command -v sway >/dev/null &&  [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ] && exec sway
+if command -v sway >/dev/null &&  [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+	export XDG_SESSION_TYPE=wayland
+	exec sway
+fi
