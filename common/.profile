@@ -14,7 +14,13 @@ export GNUPGHOME="${XDG_CONFIG_HOME:-$HOME/.config}/gnupg"
 export ENV="${XDG_CONFIG_HOME:-$HOME/.config}/shrc"    # POSIX shell rc
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh" # zshrc
 export LESSHISTFILE="-"                                # do not store history
-command -v sway >/dev/null && export MOZ_ENABLE_WAYLAND=1
+# use Wayland for everything
+if command -v sway >/dev/null; then
+    export MOZ_ENABLE_WAYLAND=1
+    export QT_QPA_PLATFORM=wayland
+    export CLUTTER_BACKEND=wayland
+    export SDL_VIDEODRIVER=wayland
+fi
 
 # Program settings
 command -v wofi >/dev/null && export SUDO_ASKPASS="$HOME/.local/bin/wofi-askpass"
@@ -31,10 +37,13 @@ else
 fi
 export VISUAL="$EDITOR"
 command -v alacritty >/dev/null && export TERMINAL="alacritty"
-#wofi uses GLib for running desktop files and executes terminal applications
-#in the terminal set via gsettings
+# wofi uses GLib for running desktop files and executes terminal applications
+# in the terminal set via gsettings
 gsettings set org.gnome.desktop.default-applications.terminal exec "$TERMINAL"
 gsettings set org.gnome.desktop.default-applications.terminal exec-arg '-e'
 #export BROWSER="firefox-developer-edition"
 command -v brave >/dev/null && export BROWSER="brave"
 command -v zathura >/dev/null && export READER="zathura"
+
+# Automatically start sway on TTY1
+command -v sway >/dev/null &&  [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ] && exec sway

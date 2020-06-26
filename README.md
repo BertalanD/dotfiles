@@ -29,6 +29,7 @@ This includes environmental variables that are required by other configurations 
 - disables `less` history
 - adds `~/.local/bin` recursively to `$PATH`
 - starts `gpg-agent`
+- automatically launches sway on TTY1
 
 If your distro comes with `bash` as the default non-interactive shell, I recommend installing `dash` and symlinking `/bin/sh` to it. Dash only has strictly POSIX-compliant features, thus it is more lightweight and faster.
 
