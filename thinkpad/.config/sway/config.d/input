@@ -20,3 +20,13 @@ input 1:1:AT_Translated_Set_2_keyboard {
     # I would prefer Win+Space but it's used in the default config for floating/tiled focus switch
     xkb_options caps:swapescape,grp:alt_shift_toggle
 }
+
+# Touchscreen
+input 1386:20816:Wacom_Pen_and_multitouch_sensor_Finger {
+    map_to_output eDP-1
+}
+
+# Wacom pen
+input 1386:20816:Wacom_Pen_and_multitouch_sensor_Pen {
+    map_to_output eDP-1
+}

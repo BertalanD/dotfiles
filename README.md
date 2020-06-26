@@ -124,3 +124,7 @@ These configs are specific to **my** laptop. Settings are:
 - Switch layouts with `Alt`+`Shift`
 - Swap `CapsLock` and `Esc` keys
 - Enable tap to click, disable touchpad while typing
+- Automatically rotate the screen
+
+#### dependencies
+Get `rot8-git` from AUR.
