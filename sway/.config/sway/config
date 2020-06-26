@@ -234,13 +234,13 @@ bindsym $mod+r mode "resize"
 # Audio
 #
     bindsym $mod+Shift+a exec $interactive_mixer
-    
+
     bindsym $mod+Shift+m exec $toggle_mute
     bindsym XF86AudioMute exec $toggle_mute
-   
+
     bindsym $mod+KP_Add exec $increase_volume
     bindsym XF86AudioRaiseVolume exec $increase_volume
-    
+
     bindsym $mod+KP_Subtract exec $decrease_volume
     bindsym XF86AudioLowerVolume exec $decrease_volume
 
@@ -259,7 +259,7 @@ bindsym $mod+r mode "resize"
 
     # Save screenshot of active window to file
     bindsym Alt+Print exec grimshot save win
-    
+
     # Save screenshot of active window to clipboard
     bindsym Ctrl+Alt+Print exec grimshot copy win
 
@@ -293,7 +293,7 @@ bindsym $mod+r mode "resize"
     bindsym XF86Explorer exec $file_explorer
     bindsym XF86MyComputer exec $file_explorer
     bindsym XF86Documents exec $file_explorer ~/Documents
-    
+
     bindsym XF86WWW exec $BROWSER
     bindsym XF86Search exec $BROWSER https://duckduckgo.com
 
@@ -315,7 +315,7 @@ bar swaybar_command waybar
     for_window [app_id="^(F|f)irefox" title="^Page Info"] floating enable
     for_window [title="^About Firefox"] floating enable
 
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*
 include config.d/*

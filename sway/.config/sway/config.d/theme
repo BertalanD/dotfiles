@@ -34,8 +34,8 @@ exec pacwall -D
 # Meanwhile, set the previously generated or fall back to solid color
 output * bg ~/.local/share/wallpapers/pacwall/pacwall*.png center $base02
 
-# 			            border	background	text	indicator	child_border
-client.focused          $blue   $blue  	    $base3  $blue       $blue
-client.focused_inactive $base03 $base03		$base00 $base03     $base03
-client.unfocused        $base03 $base03		$base00 $base03     $base03
+#                       border  background  text    indicator   child_border
+client.focused          $blue   $blue       $base3  $blue       $blue
+client.focused_inactive $base03 $base03     $base00 $base03     $base03
+client.unfocused        $base03 $base03     $base00 $base03     $base03
 client.urgent           $red    $red        $base3  $red        $red

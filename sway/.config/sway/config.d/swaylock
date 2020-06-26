@@ -1,3 +1,5 @@
+# vim: set filetype=i3 ts=4 sw=4 et:
+
 exec swayidle -w \
     timeout 180 'light -OS 10%' \
         resume 'light -I' \

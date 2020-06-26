@@ -9,7 +9,7 @@ To keep things simple and modular, I use [GNU stow](https://gnu.org/software/sto
 ## Installation
 Clone this repository into any directory on your system. My preference is `~/dotfiles`.
 
-Symlink the configs into your home directory. *Warning:* this will overwrite any previous dotfiles. Please backup them to avoid any nasty surprises. 
+Symlink the configs into your home directory. *Warning:* this will overwrite any previous dotfiles. Please backup them to avoid any nasty surprises.
 
     $ stow -v -t ~ [config]
 
@@ -62,7 +62,7 @@ Zsh is a feature-rich and more user-friendly shell for interactive use and has m
 - automatic screen locking and lockscreen
 - polkit authentication agent
 
-A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wallpaper is generated with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. 
+A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wallpaper is generated with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages.
 
 #### Dependencies
     # pacman -S sway swaybg swayidle swaylock wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code polkit-gnome

@@ -22,75 +22,75 @@
 @define-color accent   @blue;
 
 window {
-	/* borders aren't drawn by compositors so we do it */
-	border: 3px solid @accent;
-	border-radius: 0px;
+    /* borders aren't drawn by compositors so we do it */
+    border: 3px solid @accent;
+    border-radius: 0px;
 
-	background-color: alpha(@bg_color, 0.9);
-	color: @base0;
+    background-color: alpha(@bg_color, 0.9);
+    color: @base0;
 
-	font-size: large;
+    font-size: large;
 }
 
 #outer-box {
-	margin: 15px;
-	border: none;
-	outline: none;
+    margin: 15px;
+    border: none;
+    outline: none;
 }
 
 #input {
-	outline: none;
-        background: none;
-        box-shadow: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
 
-	color: @base0;
+    color: @base0;
 
-	/* underline search field */
-	border-width: 0 0 3px 0;
-        border-radius: 0px;
-        border-style: solid;
-	border-color: @accent;
+    /* underline search field */
+    border-width: 0 0 3px 0;
+    border-radius: 0px;
+    border-style: solid;
+    border-color: @accent;
 }
 
 #input:focus {
-	outline: none;
-        background: none;
-        box-shadow: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
 
-	color: @base1;
-	font-weight: bold;
+    color: @base1;
+    font-weight: bold;
 }
 
 #inner-box {
-	border: none;
+    border: none;
 }
 
 #entry * {
-	outline: none;
-	background: none;
-	box-shadow: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
 }
 
 #entry:selected {
-	outline: none;
-        background: none;
-        box-shadow: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
 
-	color: @base1;
-	font-weight: bold;
+    color: @base1;
+    font-weight: bold;
 }
 
 #img {
-	margin-right: 0.5em;
+    margin-right: 0.5em;
 }
 
 /* TODO: dropdown */
 expander list #text {
-	font-size: medium;
-	color: @base0;
+    font-size: medium;
+    color: @base0;
 }
 
 expander list *:focus #text {
-	color: @base1;
-	font-weight: bold;
+    color: @base1;
+    font-weight: bold;
 }
