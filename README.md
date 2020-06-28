@@ -125,6 +125,7 @@ These configs are specific to **my** laptop. Settings are:
 - Swap `CapsLock` and `Esc` keys
 - Enable tap to click, disable touchpad while typing
 - Automatically rotate the screen
+- On-screen keyboard (requires sway 1.5 for activation)
 
 #### dependencies
 Get `rot8-git` from AUR.
