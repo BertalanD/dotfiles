@@ -14,6 +14,11 @@ export GNUPGHOME="${XDG_CONFIG_HOME:-$HOME/.config}/gnupg"
 export ENV="${XDG_CONFIG_HOME:-$HOME/.config}/shrc"    # POSIX shell rc
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh" # zshrc
 export LESSHISTFILE="-"                                # do not store history
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
+export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.local/share}/weechat"
+export CCACHE_CONFIGPATH="${XDG_CONFIG_HOME:-$HOME/.config}/ccache.config"
+export CCACHE_DIR="${XDG_CACHE_HOME:-$HOME/.local.share}/ccache"
 
 # use Wayland for everything
 if command -v sway >/dev/null; then
