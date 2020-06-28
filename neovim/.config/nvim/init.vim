@@ -27,13 +27,19 @@ call plug#end()
 
 set nocompatible                            " do not limit features to be vi-compatible
 set title                                   " set title of terminal/window
-set clipboard+=unnamedplus                  " suffix copy commands with '+' to use system clipboard
+set clipboard+=unnamed                      " do not yank into system clipboard, prefix commands
+                                            " with `"+` to use it
 set listchars=eol:⏎,tab:--⇥,trail:·,nbsp:⎵  " symbol for whitespace characters (do :set list)
 filetype plugin on                          " filetype autodetection and plugin loading
 syntax enable                               " enable syntax highlighting, use custom colors
 set encoding=utf-8                          " de facto encoding of the modern web
 set number relativenumber                   " display line numbers relative to current
 set backspace=indent,eol,start              " expected backspace behavior (delete indents, newlines)
+set scrolloff=5                             " always show at least 5 lines above/below cursor
 
 set background=dark                         " use dark color scheme version
 colorscheme solarized                       " use solarized colors even if terminal does not use it
+set noshowmode                              " do not show mode in command line, b/c airline does it
+
+autocmd FileType text,markdown,mail setlocal spell                  " spell check these file types
+autocmd FileType text,markdown,gitcommit,mail setlocal textwidth=72 " recommended by useplaintext.email
