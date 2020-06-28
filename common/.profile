@@ -14,12 +14,15 @@ export GNUPGHOME="${XDG_CONFIG_HOME:-$HOME/.config}/gnupg"
 export ENV="${XDG_CONFIG_HOME:-$HOME/.config}/shrc"    # POSIX shell rc
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh" # zshrc
 export LESSHISTFILE="-"                                # do not store history
+
 # use Wayland for everything
 if command -v sway >/dev/null; then
     export MOZ_ENABLE_WAYLAND=1
-    export QT_QPA_PLATFORM=wayland-egl
+    if command -v qtwaylandscanner >/dev/null; then
+        export QT_QPA_PLATFORM=wayland-egl
+        # export QT_WAYLAND_FORCE_DPI=physical		# disabled now because Qt apps suck on wayland
+    fi
     export CLUTTER_BACKEND=wayland
-    export QT_WAYLAND_FORCE_DPI=physical
     export SDL_VIDEODRIVER=wayland
     export ECORE_EVAS_ENGINE=wayland_egl
     export ELM_ENGINE=wayland_egl
@@ -50,6 +53,7 @@ command -v zathura >/dev/null && export READER="zathura"
 
 # Automatically start sway on TTY1
 if command -v sway >/dev/null &&  [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-	export XDG_SESSION_TYPE=wayland
-	exec sway
+    export XDG_SESSION_TYPE=wayland
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1  # only set here in case I want to run weston with client-side decoration
+    sway
 fi
