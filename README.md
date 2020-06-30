@@ -69,7 +69,7 @@ A custom theme is set (see the screenshot). On Arch and Void Linux systems, the 
 
 ### Neovim
 
-An extensive and very powerful text editor. Currently, most settings are kept unchanged, but a larg number of useful plugins are included.
+An extensive and very powerful text editor. Currently, most settings are kept unchanged, but a large number of useful plugins are included.
 
 #### Dependencies
 
@@ -119,8 +119,11 @@ A hardened configuration for the GPG encryption/signing tool. `gpg-agent` is con
 
 ### arch
 
-Confgurations specific to Arch Linux. I try to make everything generic, but some are possible only this way:
+Configurations specific to Arch Linux. I try to make everything generic, but some are possible only this way:
 - wallpaper autogeneration with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. Sway prints an intrusive error message if its output wasn't found, and I don't want to break other distros.
+
+#### Dependencies
+Get `pacwall` from AUR.
 
 ### thinkpad
 
