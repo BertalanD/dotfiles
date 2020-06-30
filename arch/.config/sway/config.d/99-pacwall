@@ -1,0 +1,9 @@
+# vim: set filetype=i3 ts=4 sw=4 et:
+
+set $very_opaque 22
+set $opaque aa
+# Start generating new wallpaper from the graph of packages
+exec pacwall -b $base02 -s $base3$very_opaque -d $red$opaque -e $blue$opaque -p $green$opaque -f $magenta$opaque -u $yellow$opaque -y $base3$very_opaque -D
+
+# Meanwhile, set the previously generated or fall back to solid color set by theme
+output * bg ~/.local/share/wallpapers/pacwall/pacwall*.png center $base02

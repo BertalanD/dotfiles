@@ -62,7 +62,7 @@ Zsh is a feature-rich and more user-friendly shell for interactive use and has m
 - automatic screen locking and lockscreen
 - polkit authentication agent
 
-A custom theme is set (see the screenshot). On Arch and Void Linux systems, a wallpaper is generated with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages.
+A custom theme is set (see the screenshot). On Arch and Void Linux systems, the wallpaper is automatically generated from the graph of installed packages, if the `arch` directory is `stow`ed.
 
 #### Dependencies
     # pacman -S sway swaybg swayidle swaylock wofi pulseaudio pulsemixer grim slurp wl-clipboard jq util-linux light dbus ttf-fira-code polkit-gnome
@@ -116,6 +116,11 @@ Display desktop notifications. It is automatically added to be launched by sway 
 ### gpg
 
 A hardened configuration for the GPG encryption/signing tool. `gpg-agent` is configured, allowing for SSH connections using GPG keys.
+
+### arch
+
+Confgurations specific to Arch Linux. I try to make everything generic, but some are possible only this way:
+- wallpaper autogeneration with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. Sway prints an intrusive error message if its output wasn't found, and I don't want to break other distros.
 
 ### thinkpad
 

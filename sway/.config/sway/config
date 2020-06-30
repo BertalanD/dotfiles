@@ -10,8 +10,8 @@ set $down j
 set $up k
 set $right l
 # Gaps
-# Use the terminal emulator set in ~/.profile
-set $term $TERMINAL
+# Use the terminal emulator set in ~/.profile or fall back to alacritty, the sway default
+set $term ${TERMINAL:=alacritty}
 # Wayland replacement for rofi/dmenu
 # TODO: properly do run mode
 # The variables below are declared here because they are used in multiple bindings

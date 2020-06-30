@@ -29,10 +29,7 @@ set $blue      '#268bd2'
 set $cyan      '#2aa198'
 set $green     '#859900'
 
-# Start generating new wallpaper from the graph of packages
-exec pacwall -D
-# Meanwhile, set the previously generated or fall back to solid color
-output * bg ~/.local/share/wallpapers/pacwall/pacwall*.png center $base02
+output * bg $base02 solid_color
 
 #                       border  background  text    indicator   child_border
 client.focused          $blue   $blue       $base3  $blue       $blue
