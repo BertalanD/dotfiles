@@ -1,0 +1,25 @@
+# Default file associations
+# Spec: https://specifications.freedesktop.org/mime-apps-spec/1.0.1/ar01s04.html
+
+# I suspect we can't use regexes, so this is going to be verbose
+[Default Applications]
+text/x-shellscript=nvim.desktop;vim.desktop;
+application/x-shellscript=nvim.desktop;vim.desktop;
+text/plain=nvim.desktop;vim.desktop;
+text/x-c=nvim.desktop;vim.desktop;
+text/*=nvim.desktop;vim.desktop;
+
+application/pdf=zathura.desktop;
+application/octet-stream=zathura.desktop;
+application/postscript=zathura.desktop;
+image/vnd.djvu=zathura.desktop;
+
+image/x-xcf=gimp.desktop
+
+image/svg+xml=inkscape.desktop;gimp.desktop;
+
+image/png=feh.desktop;
+image/jpeg=feh.desktop;
+image/gif=feh.desktop;
+
+#x-scheme-handler/mailto=

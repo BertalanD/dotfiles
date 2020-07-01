@@ -20,7 +20,7 @@ All configs rely on environment variables set in ``common``, so that must be ins
 
 This includes environmental variables that are required by other configurations and a couple of common shell aliases. More specifically:
 - aliases `vim` commands to `nvim` if installed
-- sets XDG directories and default applications via environment variables, like:
+- sets XDG directories and default applications via environment variables and MIME handlers, like:
   - editor: neovim or vim
   - browser: brave
   - reader: zathura
@@ -112,6 +112,14 @@ Display desktop notifications. It is automatically added to be launched by sway 
 #### Dependencies
 
     # pacman -S mako libnotify
+
+### lf
+
+A terminal-based file manager.
+
+#### Dependencies
+
+    # pacman -S lf xdg-utils perl-file-mimeinfo
 
 ### gpg
 
