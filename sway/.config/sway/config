@@ -294,8 +294,8 @@ bindsym $mod+r mode "resize"
     bindsym XF86MyComputer exec $file_explorer
     bindsym XF86Documents exec $file_explorer ~/Documents
 
-    bindsym XF86WWW exec $BROWSER
-    bindsym XF86Search exec $BROWSER https://duckduckgo.com
+    bindsym XF86WWW exec ${BROWSER:-brave}
+    bindsym XF86Search exec ${BROWSER:-brave} https://duckduckgo.com
 
 #
 # Status Bar:

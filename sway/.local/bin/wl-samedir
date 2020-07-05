@@ -9,7 +9,7 @@ WINDOW_PID="$(swaymsg -t get_tree | jq '.. | (.nodes? //empty)[] | select(.focus
 PID="$(pgrep --newest --parent "$WINDOW_PID")"
 DIR="$(readlink "/proc/${PID:-$WINDOW_PID}/cwd")" || return 1
 
-case "$TERMINAL" in
+case "${TERMINAL:=alacritty}" in
     *alacritty*) "$TERMINAL" --working-directory "$DIR" ;;
     *)
         cd "${DIR:-$HOME}"

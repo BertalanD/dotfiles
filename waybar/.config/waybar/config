@@ -29,7 +29,7 @@
 			"hdmi": "",
 	    		"default": ["", "", ""]
         	},
-		"on-click": "float-run $TERMINAL -e pulsemixer"		
+		"on-click": "float-run ${TERMINAL:-alacritty} -e pulsemixer"	
 	},
 	"network": {
 		"interval": 1,
@@ -39,7 +39,7 @@
 		"tooltip-format-wifi": "IP:\t\t{ipaddr}\\{cidr}\nSignal:\t{signaldBm} ({signalStrength}%)\nFreq:\t{frequency}\nUp:\t\t{bandwidthUpBits}\nDown:\t{bandwidthDownBits}",
 		"format-linked": " {ifname} (no IP)",
 		"format-disconnected": "DISCONNECTED",
-		"on-click": "float-run $TERMINAL -e nmtui"
+		"on-click": "float-run ${TERMINAL:-alacritty} -e nmtui"
 	},
 	"custom/kbdlayout": {
 		"exec": "kbdlayout -wj",
@@ -66,6 +66,6 @@
 		"format": " {:%H:%M:%S}",
 		"format-alt": " {:%D}",
 		"tooltip-format": "<big> {:%B %Y}</big>\n<tt>{calendar}</tt>",
-		"on-click-right": "float-run $TERMINAL -e calcurse"
+		"on-click-right": "float-run ${TERMINAL:-alacritty} -e calcurse"
 	}
 }

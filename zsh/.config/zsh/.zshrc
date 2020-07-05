@@ -141,7 +141,7 @@ add-zsh-hook preexec title_preexec
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-alias zshrc="$EDITOR ${ZDOTDIR:-$HOME}/.zshrc" # edit this file
+alias zshrc="${EDITOR:-nvim} ${ZDOTDIR:-$HOME}/.zshrc" # edit this file
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh    # dependency: zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh            # dependency: zsh-autosuggestions
