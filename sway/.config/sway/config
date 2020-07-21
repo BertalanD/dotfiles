@@ -54,6 +54,10 @@ set $file_manager $term -e lf
     # Start a terminal in the focused window's pwd
     bindsym $mod+Shift+Return exec wl-samedir
 
+    # Start a floating terminal (used as a run menu)
+    # TODO: automatically nohup and close
+    bindsym Alt+F2 exec $term --class float
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -311,8 +315,10 @@ bar swaybar_command waybar
 
     for_window [window_role="pop-up"] floating enable
     for_window [class="float"] floating enable
+    for_window [app_id="float$"] floating enable
     for_window [class="^(F|f)irefox" title="^Page Info"] floating enable
     for_window [app_id="^(F|f)irefox" title="^Page Info"] floating enable
+    for_window [title="Picture-in-Picture"] floating enable
     for_window [title="^About Firefox"] floating enable
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

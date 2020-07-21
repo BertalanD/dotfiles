@@ -1,13 +1,19 @@
 #!/bin/sh
 
-"$@" &
-PID="$!"
+if echo "$1" | grep -q 'alacritty$'; then
+    exe="$1"
+    shift
+    "$exe" --class float "$@"
+else
+    "$@" &
+    PID="$!"
 
-swaymsg -t subscribe -m '[ "window" ]' |
-    jq --unbuffered ".container | select(.pid == $PID) | .id" |
-    xargs -I '@' -- swaymsg '[ con_id=@ ] floating enable' &
+    swaymsg -t subscribe -m '[ "window" ]' |
+        jq --unbuffered ".container | select(.pid == $PID) | .id" |
+        xargs -I '@' -- swaymsg '[ con_id=@ ] floating enable' &
 
-SUBSCRIPTION=$!
+    SUBSCRIPTION=$!
 
-wait "$PID"
-kill $SUBSCRIPTION
+    wait "$PID"
+    kill $SUBSCRIPTION
+fi
