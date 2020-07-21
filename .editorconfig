@@ -5,6 +5,6 @@ indent_style = space
 indent_size = 4
 
 # Shell scripts
-[**/bin/*]
+[{**/bin/*, *.sh}]
 shell_variant = posix
 switch_case_indent = true
