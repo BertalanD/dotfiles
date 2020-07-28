@@ -22,7 +22,7 @@ This includes environmental variables that are required by other configurations 
 - aliases `vim` commands to `nvim` if installed
 - sets XDG directories and default applications via environment variables and MIME handlers, like:
   - editor: neovim or vim
-  - browser: brave
+  - browser: Firefox Developer Edition, falls back to Brave
   - reader: zathura
   - terminal: alacritty
 - sets variables that move dotfiles from `~/` to ~`/.config/`

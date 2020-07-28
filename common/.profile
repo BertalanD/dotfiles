@@ -52,8 +52,15 @@ command -v alacritty >/dev/null && export TERMINAL="alacritty"
 # in the terminal set via gsettings
 gsettings set org.gnome.desktop.default-applications.terminal exec "$TERMINAL"
 gsettings set org.gnome.desktop.default-applications.terminal exec-arg '-e'
-#export BROWSER="firefox-developer-edition"
-command -v brave >/dev/null && export BROWSER="brave"
+if command -v firefox-developer-edition >/dev/null; then
+    export BROWSER="firefox-developer-edition"
+elif command -v brave >/dev/null; then
+    export BROWSER="brave"
+elif command -v firefox >/dev/null; then
+    export BROWSER="firefox"
+else
+    export BROWSER="chromium"
+fi
 command -v zathura >/dev/null && export READER="zathura"
 
 # Automatically start sway on TTY1
