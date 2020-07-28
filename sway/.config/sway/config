@@ -56,7 +56,7 @@ set $file_manager $term -e lf
 
     # Start a floating terminal (used as a run menu)
     # TODO: automatically nohup and close
-    bindsym Alt+F2 exec $term --class float
+    bindsym Alt+F2 exec float-run $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
