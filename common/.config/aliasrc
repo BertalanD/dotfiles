@@ -1,49 +1,53 @@
 #!/bin/sh
 
 # Verbose and interactive mode
-alias \
-    cp="cp -iv" \
-    mv="mv -iv" \
-    rm="rm -Iv" \
-    ln="ln -iv" \
-    mkd="mkdir -pv"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -Iv"
+alias ln="ln -iv"
+alias mkd="mkdir -pv"
 
 # Colorize always
-alias \
-    ls="ls --color=auto --group-directories-first -N" \
-    grep="grep --color=auto" \
-    egrep="egrep --color=auto" \
-    fgrep="fgrep --color=auto" \
-    diff="diff --color=auto" \
-    ccat="highlight --out-format=ansi" \
-    ip="ip -color=auto"
+alias ls="ls --color=auto --group-directories-first -N"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias diff="diff --color=auto"
+alias ccat="highlight --out-format=ansi"
+alias ip="ip -color=auto"
 
 # Variations on a theme
 # sources:
 #   - https://gist.github.com/anonymous/a9055e30f97bd19645c2
 #   - https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
-alias lr="ls -R"         # recursive
-alias ll="ls -lAhF"      # long format, human-readable sizes, list dotfiles, show types
-alias ldot="ls -ldF .*"  # list dotfies in long format
-alias l.="ls -dF .*"     # list dotfiles in short format
-alias l="ls -CF"         # list files, show types
-alias lx="ll -BX"        # sort by extension
-alias lsz="ll -rS"       # sort by size
-alias lt="ll -rt"        # sort by date
+alias lr="ls -R"        # recursive
+alias ll="ls -lAhF"     # long format, human-readable sizes, list dotfiles, show types
+alias ldot="ls -ldF .*" # list dotfies in long format
+alias l.="ls -dF .*"    # list dotfiles in short format
+alias l="ls -CF"        # list files, show types
+alias lx="ll -BX"       # sort by extension
+alias lsz="ll -rS"      # sort by size
+alias lt="ll -rt"       # sort by date
 alias lart="ls -1Fcart"
 alias lrt="ls -1Fcrt"
 
 # Other useful shorthands
-alias dud="du -d 1 -h"             # display the size of files at depth 1
-alias duf="du -sh"                 # display the size of files in the current dir
-alias fd="find . -type d -name"    # find directory with name
-alias ff="find . -type f -name"    # find file with name
-alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}"  # ripgrep is better for this
+alias dud="du -d 1 -h"                                         # display the size of files at depth 1
+alias duf="du -sh"                                             # display the size of files in the current dir
+alias fd="find . -type d -name"                                # find directory with name
+alias ff="find . -type f -name"                                # find file with name
+alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}" # ripgrep is better for this
 
-alias cg='cd "$(git rev-parse --show-toplevel)"'  # cd to the top level of git repository
+alias cg='cd "$(git rev-parse --show-toplevel)"' # cd to the top level of git repository
 
 # Substitute neovim for vim
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" rvim="nvim -Z" view="nvim -R" rview="nvim -RZ"
+if command -v nvim >/dev/null; then
+    alias vim="nvim"
+    alias vimdiff="nvim -d"
+    alias rvim="nvim -Z"
+    alias view="nvim -R"
+    alias rview="nvim -RZ"
+fi
 
 # Fix ssh in Alacritty when remote machine does not have termcap for it
 _ssh() {
@@ -53,7 +57,7 @@ _ssh() {
 alias ssh="_ssh"
 
 # Create directory and cd into it
-mkcd() { mkdir -p "$1" && cd "$1"; } 
+mkcd() { mkdir -p "$1" && cd "$1"; }
 
 # Colorize man pages
 man() {
@@ -68,5 +72,5 @@ man() {
         PAGER="${PAGER:-less}" \
         _NROFF_U=1 \
         GROFF_NO_SGR=1 \
-    man "$@"
+        man "$@"
 }
