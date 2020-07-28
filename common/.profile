@@ -67,5 +67,5 @@ command -v zathura >/dev/null && export READER="zathura"
 if command -v sway >/dev/null &&  [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     export XDG_SESSION_TYPE=wayland
     export QT_WAYLAND_DISABLE_WINDOWDECORATION=1  # only set here in case I want to run weston with client-side decoration
-    sway
+    exec sway
 fi
