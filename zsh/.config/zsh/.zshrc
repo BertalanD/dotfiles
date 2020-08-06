@@ -23,6 +23,21 @@ unsetopt FLOW_CONTROL  # Disable ctrl+s freezing terminal
 
 bindkey -v #  use vim keybindings
 
+# Change cursor shape for different vi modes.
+# source: voidrice
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
