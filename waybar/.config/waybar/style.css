@@ -1,10 +1,10 @@
 * {
-	border: none;
-	border-radius: 0;
-	/* `otf-font-awesome` is required to be installed for icons */
-	font-family: Roboto, Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	min-height: 0;
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    min-height: 0;
 }
 
 #clock,
@@ -15,64 +15,64 @@
 #bluetooth,
 #tray,
 #mode {
-	font-size: 18px;
-	color: #839496; /*base0*/
-	margin: 0 4px;
-	border-bottom: 3px solid;
+    font-size: 18px;
+    color: #839496; /*base0*/
+    margin: 0 4px;
+    border-bottom: 3px solid;
 }
 
 window#waybar {
-	background-color: #002b36; /*base03*/
-	color: #839496; /*base0*/
-	transition-property: background-color;
-	transition-duration: 0.5s;
+    background-color: #002b36; /*base03*/
+    color: #839496; /*base0*/
+    transition-property: background-color;
+    transition-duration: 0.5s;
 }
 
 #workspaces button {
-	padding: 5px;
-	color: #586e75; /*base01*/
-	background-color: transparent;
-	border-bottom: 3px solid;
-	border-bottom-color: #586e75; /*base01*/
+    padding: 5px;
+    color: #586e75; /*base01*/
+    background-color: transparent;
+    border-bottom: 3px solid;
+    border-bottom-color: #586e75; /*base01*/
 }
 
 *:hover {
-	box-shadow: inherit;
-	color: #839496; /*base0*/
-	background: rgba(7, 54, 66, 0.5); /*base02*/
+    box-shadow: inherit;
+    color: #839496; /*base0*/
+    background: rgba(7, 54, 66, 0.5); /*base02*/
 }
 #workspaces button.focused {
-	color: #93a1a1; /*base1*/
-	border-bottom-color: #93a1a1; /*base1*/
-	font-weight: bold;
+    color: #93a1a1; /*base1*/
+    border-bottom-color: #93a1a1; /*base1*/
+    font-weight: bold;
 }
 #workspaces button.urgent {
-	border-bottom-color: #dc322f; /*red*/
+    border-bottom-color: #dc322f; /*red*/
 }
 
 #mode {
-	border-bottom-color: #586e75; /*base01*/
-	font-style: italic;
+    border-bottom-color: #586e75; /*base01*/
+    font-style: italic;
 }
 
 #window {
-	color: #93a1a1; /*base1*/
+    color: #93a1a1; /*base1*/
 }
 
 #battery.warning:not(.charging) {
-	border-bottom-color: #cb4b16; /*orange*/
-	/*Blink for 5 seconds then stop; to not be too annoying*/
-	animation-name: blink;
-        animation-duration: .5s;
-        animation-iteration-count: 10;
-        animation-direction: alternate;
+    border-bottom-color: #cb4b16; /*orange*/
+    /*Blink for 5 seconds then stop; to not be too annoying*/
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-iteration-count: 10;
+    animation-direction: alternate;
 }
 
 #battery.critical:not(.charging) {
-	color: #dc322f; /*red*/
-	border-bottom-color: #dc322f; /*red*/
-	animation-name: blink;
-	animation-duration: .5s;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+    color: #dc322f; /*red*/
+    border-bottom-color: #dc322f; /*red*/
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
