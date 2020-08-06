@@ -56,7 +56,8 @@
             "exec": "kbdlayout -wj",
             "return-type": "json",
             "format": " {}",
-            "restart-interval": 1
+            "restart-interval": 1,
+            "on-click": "kbdtoggle"
         },
         "battery": {
             "bat": "BAT0",

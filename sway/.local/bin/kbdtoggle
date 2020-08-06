@@ -1,0 +1,29 @@
+#!/bin/sh
+
+help() {
+    me="$(basename ${0:-$BASH_SOURCE})"
+    echo "$me - switch to the next keyboard layout"
+    echo "$me [device]"
+    echo
+    echo "Options:"
+    echo "  device: identifier of keyboard (regex)"
+}
+
+while getopts h opt; do
+    case $opt in
+        h)
+            help
+            exit 0
+            ;;
+        *) exit 1 ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+DEVICE="${1:-1:1:.*}"
+
+inputdata="$(swaymsg -t get_inputs | jq ".[] | select(.identifier|test(\"$DEVICE\"))")"
+exact_device="$(echo "$inputdata" | jq ".identifier //empty")"
+index="$(echo "$inputdata" | jq ".xkb_active_layout_index")"
+layoutcount="$(echo "$inputdata" | jq ".xkb_layout_names | length")"
+swaymsg input "$exact_device" xkb_switch_layout $((($index + 1) % $layoutcount)) || exit 1
