@@ -8,6 +8,7 @@
 		"tray",
 		"pulseaudio",
 		"network",
+        "bluetooth",
 		"custom/kbdlayout",
 		"battery",
 		"clock"
@@ -39,9 +40,19 @@
 		"tooltip-format-wifi": "IP:\t\t{ipaddr}\\{cidr}\nSignal:\t{signaldBm} ({signalStrength}%)\nFreq:\t{frequency}\nUp:\t\t{bandwidthUpBits}\nDown:\t{bandwidthDownBits}",
 		"format-linked": " {ifname} (no IP)",
 		"format-disconnected": "DISCONNECTED",
+        "format-disabled": " {ifname}",
 		"on-click": "float-run ${TERMINAL:-alacritty} -e nmtui"
 	},
-	"custom/kbdlayout": {
+	"bluetooth": {
+        "format": "{icon}",
+        "format-icons": {
+            "enabled": "",
+            "disabled": ""
+        },
+        "tooltip-format": "bluetooth: {status}",
+        "on-click": "float-run ${TERMINAL:-alacritty} -e bluetoothctl"
+    },
+    "custom/kbdlayout": {
 		"exec": "kbdlayout -wj",
 		"return-type": "json",
 		"format": " {}",
