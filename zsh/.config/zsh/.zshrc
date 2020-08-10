@@ -158,10 +158,10 @@ bindkey '^e' edit-command-line
 
 alias zshrc="${EDITOR:-nvim} ${ZDOTDIR:-$HOME}/.zshrc" # edit this file
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh    # dependency: zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh            # dependency: zsh-autosuggestions
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme                    # dependency: zsh-theme-powerlevel10k
-command -v pacman >/dev/null && source /usr/share/doc/pkgfile/command-not-found.zsh  # dependency: pkgfile [Arch]
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh  # dependency: fast-syntax-highlighting (AUR)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh                   # dependency: zsh-autosuggestions
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme                           # dependency: zsh-theme-powerlevel10k
+command -v pacman >/dev/null && source /usr/share/doc/pkgfile/command-not-found.zsh         # dependency: pkgfile [Arch]
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
