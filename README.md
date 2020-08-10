@@ -142,6 +142,7 @@ These configs are specific to **my** laptop. Settings are:
 - Enable tap to click, disable touchpad while typing
 - Automatically rotate the screen
 - On-screen keyboard (requires sway 1.5 for activation)
+- Automatically manages my at-home display setup
 
 #### dependencies
-Get `rot8-git` from AUR.
+Get `rot8-git` from AUR. Install `kanshi`.
