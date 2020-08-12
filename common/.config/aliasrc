@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Substitute aliases for sudo
+alias sudo="sudo "
+
 # Verbose and interactive mode
 alias cp="cp -iv"
 alias mv="mv -iv"
@@ -15,6 +18,7 @@ alias fgrep="fgrep --color=auto"
 alias diff="diff --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias ip="ip -color=auto"
+alias pacman="pacman --color=always"
 
 # Variations on a theme
 # sources:
@@ -37,6 +41,7 @@ alias duf="du -sh"                                             # display the siz
 alias fd="find . -type d -name"                                # find directory with name
 alias ff="find . -type f -name"                                # find file with name
 alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}" # ripgrep is better for this
+alias e="${EDITOR:-nvim}"
 
 alias cg='cd "$(git rev-parse --show-toplevel)"' # cd to the top level of git repository
 
