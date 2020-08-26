@@ -69,15 +69,7 @@ A custom theme is set (see the screenshot). On Arch and Void Linux systems, the 
 
 ### Neovim
 
-An extensive and very powerful text editor. Currently, most settings are kept unchanged, but a large number of useful plugins are included.
-
-#### Dependencies
-
-    # pacman -S neovim vim-airline vim-airline-themes vim-surround vim-nerdtree vim-editorconfig
-
-From the AUR, get:
-- vim-colors-solarized-git
-- vim-rainbow-parentheses-git
+An extensive and very powerful text editor. Currently, most settings are kept unchanged, but a large number of useful plugins are included. These are automatically downloaded with [vim-plug](https://github.com/junegunn/vim-plug). [LSP](https://en.wikipedia.org/wiki/Language_Server_Protocol) support depends on the upcoming [Lua plugin](https://github.com/neovim/nvim-lsp) available in the 0.5 pre-release builds.
 
 ### Waybar
 
@@ -86,6 +78,7 @@ A graphical statusbar natively compatible with Wayland. Right-to-left, it displa
 - any system tray icons
 - speaker and microphone volume, click to open `pulsemixer`
 - active network connection, hover for more info, click to open `nmtui`
+- bluetooth connectivity, click to launch `bluetoothctl`.
 - active keyboard layout (via  custom `.local/bin/kbdlayout`)
 - battery status and warns you if it's running low, hover to show time to empty/charge
 - time, click to show date, hover to show calendar, right click to open `calcurse`
