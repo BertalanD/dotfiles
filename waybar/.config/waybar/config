@@ -6,6 +6,7 @@
     "modules-center": ["sway/window"],
     "modules-right": [
         "tray",
+        "disk",
         "pulseaudio",
         "network",
         "bluetooth",
@@ -13,6 +14,12 @@
         "battery",
         "clock"
     ],
+    "disk": {
+        "interval": 60,
+        "format": " {used}/{total}",
+        "tooltip": true,
+        "tooltip-format": "{used}/{total} used on {path} ({percentage_free}% free)"
+    },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{icon} {volume}%  {format_source}",

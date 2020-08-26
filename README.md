@@ -76,6 +76,7 @@ An extensive and very powerful text editor. Currently, most settings are kept un
 A graphical statusbar natively compatible with Wayland. Right-to-left, it displays:
 - workspaces, active binding mode and title of the focused window on Sway
 - any system tray icons
+- disk usage on the root partition
 - speaker and microphone volume, click to open `pulsemixer`
 - active network connection, hover for more info, click to open `nmtui`
 - bluetooth connectivity, click to launch `bluetoothctl`.
