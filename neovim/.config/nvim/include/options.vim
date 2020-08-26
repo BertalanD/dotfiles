@@ -29,3 +29,9 @@ set title
 " color scheme
 set background=dark
 colorscheme solarized
+
+" completion-nvim options
+"
+" Completion menu: show even if only 1 match, insert on <CR> etc.
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c

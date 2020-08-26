@@ -6,7 +6,7 @@ autocmd FileType rust
 
 autocmd FileType markdown
     \ setlocal spell            " enable spell checking (set language with :set spelllang)
-    \ | setlocal textwidth=72     " force 72 column wrap (see https://useplaintext.email)
+    \ | setlocal textwidth=72   " force 72 column wrap (see https://useplaintext.email)
 
 autocmd FileType gitcommit
     \ setlocal spell

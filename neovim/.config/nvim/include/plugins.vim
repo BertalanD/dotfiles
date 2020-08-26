@@ -35,6 +35,8 @@ Plug 'neovim/nvim-lsp'
 
 " Pop-up completion menu
 Plug 'nvim-lua/completion-nvim'
+
+Plug 'tpope/vim-markdown'
 call plug#end()
 
 lua <<EOF
