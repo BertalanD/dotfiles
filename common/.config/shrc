@@ -11,8 +11,8 @@
 updategpgtty() {
     # Required by GPG SSH agent
     export GPG_TTY="$(tty)"
-    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-    gpg-connect-agent updatestartuptty /bye >/dev/null
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
 }
 
 updategpgtty
