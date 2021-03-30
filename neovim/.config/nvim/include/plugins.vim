@@ -31,15 +31,27 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rust-lang/rust.vim'
 
 " Warning: requires NIGHTLY (0.5) neovim builds!
-Plug 'neovim/nvim-lsp'
+if has('nvim-0.5')
+    Plug 'neovim/nvim-lspconfig'
 
-" Pop-up completion menu
-Plug 'nvim-lua/completion-nvim'
+    " Pop-up completion menu
+    Plug 'nvim-lua/completion-nvim'
+endif
 
-Plug 'tpope/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" Project fluent localization framework
+Plug 'projectfluent/fluent.vim'
+
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
-lua <<EOF
-require'nvim_lsp'.rust_analyzer.setup({on_attach=require'completion'.on_attach})
-EOF
+if has('nvim-0.5')
+    lua require'lspconfig'.rust_analyzer.setup{on_attach=require'completion'.on_attach}
+    lua require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
+    lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
+endif
 
+" Use powerline symbols in status bar
+let g:airline_powerline_fonts = 1
