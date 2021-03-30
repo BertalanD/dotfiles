@@ -285,6 +285,7 @@ bindsym $mod+r mode "resize"
     # Uses my own ~/.local/bin/rfkill-toggle script
     bindsym XF86WLAN exec rfkill-toggle wlan
     bindsym XF86Bluetooth exec rfkill-toggle bluetooth
+    bindsym XF86RFKill exec rfkill-toggle all
 
     # Uses the nicked ~/.local/bin/kbdbacklight
     bindsym XF86KbdBrightnessUp exec kbdbacklight up
