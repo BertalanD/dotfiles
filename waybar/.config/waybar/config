@@ -12,7 +12,8 @@
         "bluetooth",
         "custom/kbdlayout",
         "battery",
-        "clock"
+        "clock",
+        "custom/osktoggle"
     ],
     "disk": {
         "interval": 60,
@@ -56,7 +57,7 @@
             "enabled": "",
             "disabled": ""
         },
-        "tooltip-format": "bluetooth: {status}",
+        "tooltip-format": "Bluetooth: {}",
         "on-click": "float-run ${TERMINAL:-alacritty} -e bluetoothctl"
     },
     "custom/kbdlayout": {
@@ -86,6 +87,11 @@
         "format-alt": " {:%D}",
         "tooltip-format": "<big> {:%B %e %Y}</big>\n<tt>{calendar}</tt>",
         "on-click-right": "float-run ${TERMINAL:-alacritty} -e calcurse"
+    },
+    "custom/osktoggle": {
+        "on-click": "osktoggle",
+        "format": "",
+        "tooltip": false
     }
 }
 

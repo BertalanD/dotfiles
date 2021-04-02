@@ -1,3 +1,7 @@
 # Run the on-screen keyboard
-
 exec squeekboard
+# Do not show by default; activatee with button on Waybar
+exec busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
+
+bindswitch tablet:on busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true
+bindswitch tablet:off busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b false
