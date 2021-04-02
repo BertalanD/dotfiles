@@ -95,10 +95,6 @@ Font Awesome is used for the icons and a custom theme is provided.
 
 A GPU-accelerated cross-platform terminal emulator. Aside from my preferred font (Fira Code)/color scheme (Solarized Dark), most settings are kept default. A script `.local/bin/xterm` is included that notifies you if an application tries to run `xterm` and launches Alacritty.
 
-### redshift
-
-Control the display's color temperature. Automatically sets a warmer temperature at night, reducing eye strain. Requires a version patched with Wayland support (i.e. `redshift-wayland-git` from AUR). Set to be run on login by sway.
-
 ### mako
 
 Display desktop notifications. It is automatically added to be launched by sway on startup. Custom theming is added.
@@ -106,6 +102,14 @@ Display desktop notifications. It is automatically added to be launched by sway 
 #### Dependencies
 
     # pacman -S mako libnotify
+
+### gammastep
+
+A utility that automatically adjusts the [color temperature](https://en.wikipedia.org/wiki/Color_temperature) of the screen. A warmer color at night supposedly helps to reduce eye strain. It has native Wayland support and starts up based on geolocation.
+
+#### Dependencies
+
+    # pacman -S gammastep
 
 ### lf
 
