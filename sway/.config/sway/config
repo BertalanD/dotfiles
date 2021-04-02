@@ -58,7 +58,9 @@ set $file_manager $term -e lf
     # TODO: automatically nohup and close
     bindsym Alt+F2 exec float-run $term
 
-    # Kill focused window
+    bindsym Alt+F1 exec float-run $term -e '/bin/bash'
+
+        # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
@@ -319,6 +321,7 @@ bar swaybar_command waybar
     for_window [app_id="float$"] floating enable
     for_window [class="^(F|f)irefox" title="^Page Info"] floating enable
     for_window [app_id="^(F|f)irefox" title="^Page Info"] floating enable
+    for_window [app_id="^(F|f)irefox" title="Firefox - Sharing Indicator"] floating enable
     for_window [title="Picture-in-Picture"] floating enable
     for_window [title="^About Firefox"] floating enable
 
