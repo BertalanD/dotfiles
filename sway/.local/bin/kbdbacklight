@@ -41,11 +41,6 @@ backlight_set() {
 #       set it to a specific numeric value.
 backlight_change() {
     change="$1"
-    if [ "${change}" ]; then
-        echo "Invalid backlight change ${change}." \
-            "Should be 'up' or 'down'." >&2
-        return 1
-    fi
 
     case "$change" in
         [1234567890] | [[1234567890][[1234567890])
@@ -93,7 +88,6 @@ backlight_change() {
 if [ $# = 0 ]; then
     current_brightness=$(backlight_get)
     echo "Keyboard brightness is ${current_brightness}"
-    # notify-send -t 800 "Keyboard brightness is ${current_brightness}"
 else
     # Handle multiple backlight changes, e.g.:
     #   backlight.sh up up down down up
