@@ -127,6 +127,7 @@ A hardened configuration for the GPG encryption/signing tool. `gpg-agent` is con
 
 Configurations specific to Arch Linux. I try to make everything generic, but some are possible only this way:
 - wallpaper autogeneration with [`pacwall`](https://github.com/Kharacternyk/pacwall), depicting the dependency graph of the installed packages. Sway prints an intrusive error message if its output wasn't found, and I don't want to break other distros.
+- Automatically start Chromium with [Ozone](https://chromium.googlesource.com/chromium/src/+/master/docs/ozone_overview.md) support enabled.
 
 #### Dependencies
 Get `pacwall` from AUR.
