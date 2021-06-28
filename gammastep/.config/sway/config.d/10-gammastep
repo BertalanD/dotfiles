@@ -1,2 +1,4 @@
+# vim: set filetype=i3 ts=4 sw=4 et:
+
 exec /usr/lib/geoclue-2.0/demos/agent
 exec gammastep

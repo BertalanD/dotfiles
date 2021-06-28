@@ -1,1 +1,3 @@
+# vim: set filetype=i3 ts=4 sw=4 et:
+
 exec kanshi
