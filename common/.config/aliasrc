@@ -18,7 +18,6 @@ alias fgrep="fgrep --color=auto"
 alias diff="diff --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias ip="ip -color=auto"
-alias pacman="pacman --color=always"
 
 # Variations on a theme
 # sources:
@@ -53,13 +52,6 @@ if command -v nvim >/dev/null; then
     alias view="nvim -R"
     alias rview="nvim -RZ"
 fi
-
-# Fix ssh in Alacritty when remote machine does not have termcap for it
-_ssh() {
-    [ "$TERM" = "alacritty" ] && TERM="xterm-256color"
-    TERM="$TERM" ssh "$@"
-}
-alias ssh="_ssh"
 
 # Create directory and cd into it
 mkcd() { mkdir -p "$1" && cd "$1"; }
