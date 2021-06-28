@@ -18,8 +18,8 @@ image/x-xcf=gimp.desktop
 
 image/svg+xml=inkscape.desktop;gimp.desktop;
 
-image/png=feh.desktop;
-image/jpeg=feh.desktop;
-image/gif=feh.desktop;
+image/png=imv.desktop;
+image/jpeg=imv.desktop;
+image/gif=imv.desktop;
 
 #x-scheme-handler/mailto=
