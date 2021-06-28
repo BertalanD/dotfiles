@@ -1,4 +1,4 @@
 # vim: set filetype=i3 ts=4 sw=4 et:
 
 # Start generating new wallpaper from the graph of packages
-exec pacwall
+exec_always pacwall
