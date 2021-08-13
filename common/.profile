@@ -31,6 +31,7 @@ if command -v sway >/dev/null; then
     export SDL_VIDEODRIVER=wayland
     export ECORE_EVAS_ENGINE=wayland_egl
     export ELM_ENGINE=wayland_egl
+    export _JAVA_AWT_WM_NONREPARENTING=1
 fi
 
 # Program settings
