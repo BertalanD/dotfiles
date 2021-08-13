@@ -50,7 +50,6 @@ call plug#end()
 if has('nvim-0.5')
     lua require'lspconfig'.rust_analyzer.setup{on_attach=require'completion'.on_attach}
     lua require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
-    lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
 endif
 
 " Use powerline symbols in status bar
