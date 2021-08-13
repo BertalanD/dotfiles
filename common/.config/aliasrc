@@ -43,6 +43,7 @@ alias sgrep="grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS}" # ripgrep is bett
 alias e="${EDITOR:-nvim}"
 
 alias cg='cd "$(git rev-parse --show-toplevel)"' # cd to the top level of git repository
+alias gso="git rebase --exec 'git commit --amend --no-edit -n -S' -i"   # gpg-sign old commits
 
 # Substitute neovim for vim
 if command -v nvim >/dev/null; then
