@@ -10,7 +10,7 @@
         "pulseaudio",
         "network",
         "bluetooth",
-        "custom/kbdlayout",
+        "sway/language",
         "battery",
         "clock",
         "custom/osktoggle"
@@ -60,11 +60,9 @@
         "tooltip-format": "Bluetooth: {}",
         "on-click": "float-run ${TERMINAL:-alacritty} -e bluetoothctl"
     },
-    "custom/kbdlayout": {
-        "exec": "kbdlayout -wj",
-        "return-type": "json",
-        "format": " {}",
-        "restart-interval": 1,
+    "sway/language": {
+        "format": "  {short} {variant}",
+        "tooltip-format": "{long}",
         "on-click": "kbdtoggle"
     },
     "battery": {
