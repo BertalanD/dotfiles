@@ -28,7 +28,9 @@ set title
 
 " color scheme
 set background=dark
-colorscheme solarized
+if !has('mac')
+  colorscheme solarized
+endif
 
 " completion-nvim options
 "
