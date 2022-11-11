@@ -40,6 +40,9 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'rhysd/vim-llvm'
+
 call plug#end()
 
 if has('nvim-0.5')
