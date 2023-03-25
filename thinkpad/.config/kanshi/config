@@ -1,5 +1,5 @@
-profile home{
-    output "BenQ Corporation BenQ EW2780U 7AK00056019" enable position 0,0 scale 1 mode 2560x1440
+profile {
+    output "BNQ BenQ EW2780U 7AK00056019" enable position 0,0 scale 1 mode 2560x1440
 
     output eDP-1 enable position 2560,360
 }
